@@ -1,0 +1,56 @@
+button, .button {
+    --colour-1: var(--colour-grey-light);
+    --colour-2: var(--colour-grey);
+    --colour-3: var(--colour-grey-dark);
+    --colour-4: var(--colour-black-light);
+    
+    display: block;
+    
+    background: var(--colour-1);
+    border-radius: var(--dim-layout-tiny);
+    box-shadow: var(--box-shadow-medium);
+    color: var(--colour-4);
+    text-decoration: none;
+    cursor: pointer;
+    
+    min-width: var(--dim-element-medium);
+    
+    line-height: var(--nav-item-size);
+    text-align: center;
+    font-size: var(--dim-font-small);
+    font-family: poppins;
+}
+
+.button:active {
+    background: var(--colour-2);
+    filter: brightness(95%);
+}
+
+.button.primary {
+    --colour-1: var(--colour-blue-light);
+    --colour-2: var(--colour-blue);
+    --colour-3: var(--colour-blue-dark);
+    --colour-4: var(--colour-white-light);
+}
+
+.button.secondary {
+    --colour-1: var(--colour-white-light);
+    --colour-2: var(--colour-white-light);
+    --colour-3: var(--colour-blue);
+    --colour-4: var(--colour-blue);
+}
+
+.button.warn {
+    --colour-1: var(--colour-yellow-light);
+    --colour-2: var(--colour-yellow);
+    --colour-3: var(--colour-yellow-dark);
+    --colour-4: var(--colour-black-light);
+}
+
+.button.danger {
+    --colour-1: var(--colour-red-light);
+    --colour-2: var(--colour-red);
+    --colour-3: var(--colour-red-dark);
+    --colour-4: var(--colour-grey-light);
+}
+

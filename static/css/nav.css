@@ -1,0 +1,175 @@
+#nav {
+    grid-area: header;
+    
+    max-height: var(--dim-element-medium);
+    
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-template-columns: auto 1fr auto;    
+    
+    transition: background 0.3s;
+    
+    z-index: 105;
+
+    align-items: center;
+    
+    grid-template-areas: 'logo links langswitch';
+}
+
+#root:not(.large-header) #nav {
+    position: sticky;
+    top: 0;
+    background: var(--colour-background);
+    border-bottom: 1px solid var(--colour-grey-dark);
+}
+
+#root.large-header:hover {
+    backdrop-filter: blur(var(--dim-element-medium));
+}
+
+#root.large-header #nav {
+    background: var(--background-image);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    
+    padding: var(--dim-layout-large);
+    align-items: start;
+    
+    max-height: var(--dim-element-huge);        
+    --colour-foreground: var(--colour-white-light);
+}
+
+#nav #logo {
+    grid-area: logo;
+    width: 100%;
+    color: var(--colour-accent);
+    padding: var(--dim-layout-medium);
+}
+
+#nav #logo svg {
+    max-width: var(--dim-element-medium);
+    width: 100%;
+    color: inherit;
+}
+
+#nav #links {
+    grid-area: links;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+#nav > nav#main .indented {
+    padding-left: var(--nav-item-size);
+    
+    display: grid;
+    grid-auto-rows: var(--nav-item-size);
+}
+
+#nav a.nav-link {
+    text-decoration: none;
+    text-align: left;
+    font-size: var(--dim-font-large);
+    line-height: var(--nav-item-size);
+
+    color: var(--colour-foreground);
+    padding-left: var(--dim-layout-medium);
+    transition: padding-left 0.2s;
+}
+
+#nav a.nav-link:hover {
+    padding-left: calc(var(--dim-layout-large) + var(--dim-layout-large) - 4px);
+}
+
+#nav label.nav-category:after {
+    content: '\EA4D';
+    font-family: 'remixicon';
+    padding: 0 var(--dim-layout-small);
+    transition: transform 0.3s;
+    display: inline-block;
+}
+
+#nav label.nav-category, #nav #links > a.nav-link {
+    font-size: var(--dim-font-huge);
+    font-weight: bold;
+    text-align: center;
+    line-height: var(--nav-item-size);
+    min-width: var(--dim-element-large);
+    display: block;
+    padding: var(--dim-layout-medium);
+}
+
+#nav label.nav-category + nav, #language-options {
+    position: fixed;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 20;
+    display: block;
+    width: var(--dim-element-large);
+    
+    backdrop-filter: blur(var(--dim-element-small)) brightness(75%);
+    
+    transition: opacity 0.3s;
+}
+
+#nav label.nav-category + nav .nav-link, #current-language ~ #language-options > a.nav-link {
+    width: 100%;
+    display: block;
+    font-size: var(--dim-font-normal);
+}
+
+#nav label.nav-category + nav .nav-link:hover, #current-language ~ #language-options > a.nav-link:hover {
+    background: var(--colour-primary);
+    color: var(--colour-foreground-accent);
+}
+
+#nav label.nav-category:hover + nav, #nav label.nav-category + nav:hover, #langswitch:hover #language-options {
+    opacity: 1;
+    pointer-events: initial;
+}
+
+#nav label.nav-category:hover:after {
+    transform: rotate(90deg);
+}
+
+#nav #langswitch {
+    grid-area: langswitch;
+    padding: var(--dim-layout-medium);
+}
+
+#nav #langswitch #current-language {
+    font-size: var(--dim-font-small);
+    font-weight: bold;
+    text-align: center;
+    display: block;
+    text-decoration: none;
+    line-height: var(--nav-item-size);
+    text-transform: uppercase;
+    width: var(--nav-item-size);
+    height: var(--nav-item-size);
+    border-radius: calc(var(--nav-item-size) / 2);
+    background: var(--colour-foreground);
+    
+    color: var(--colour-black-dark);
+    
+    mix-blend-mode: screen;
+}
+
+#root:not(.large-header) #current-language {
+    mix-blend-mode: initial;
+    background: var(--colour-background);
+    color: var(--colour-foreground);
+}
+
+#language-options {
+    right: var(--dim-element-small); /* The same offset that the nav has from the edge of the page */
+    max-width: auto;
+    width: auto;
+    min-width: var(--dim-element-medium);
+}
+
+#root #langswitch #language-options > a.nav-link {
+    font-size: var(--dim-font-small);
+    font-weight: bold;
+}

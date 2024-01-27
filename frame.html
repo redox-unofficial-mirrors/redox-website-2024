@@ -1,0 +1,21 @@
+<section id="root" <?py('class="large-header"' if final_path.endswith('/index.html') else '' )?>>
+	<section id="nav">
+		<a href="<?py('/en' if final_path.startswith('/en') else '/de')?>" id="logo" style="color: var(--colour-foreground)">
+			<?py(include('./static/img/logos/redox.svg'))?>
+		</a>
+		<nav id="links">
+			<?py(mod('nav').get_nav(root, lang, build, languages))?>
+		</nav>
+		<div id="langswitch">
+			<!-- <a href="<?py(('/de' if final_path.startswith('/en') else '/en') + final_path[3:])?>"><?py('en' if final_path.startswith('/en') else 'de')?></a> -->
+			<?py(mod('nav').build_language_picker(lang, languages, final_path))?>
+		</div>
+	</section>
+
+	<section id="content">
+		<?py(body)?>
+
+	</section>
+
+	<?py(include('./footer.html'))?>
+</section>

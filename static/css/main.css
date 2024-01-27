@@ -1,0 +1,190 @@
+@import url('./theme.css');
+@import url('./widgets.css');
+@import url('./typography.css');
+@import url('./mobile.css');
+
+@import url('./nav.css');
+
+*, :root {
+    margin: 0;
+    padding: 0;
+    
+    position: relative;
+    
+    font-family: 'Raleway', sans-serif;
+    
+    color: var(--colour-foreground);
+    
+    box-sizing: border-box;
+    
+    --box-shadow-tiny: 0 0 2px rgba(55, 55, 55, 15%);
+}
+
+:root, #root, body {
+    background: var(--colour-background);
+}
+
+#root {
+    min-width: 100%;
+    min-height: 100vh;
+    
+    display: grid;
+    
+    grid-template-rows: var(--dim-element-medium) 1fr var(--dim-element-small) auto auto;
+    grid-template-columns: var(--dim-element-small) 1fr minmax(auto, 1200px) 1fr var(--dim-element-small);
+    
+    grid-template-areas: 
+        'l_pad header header header r_pad' 
+        'l_pad left_padding content right_paddng r_pad' 
+        'l_pad left_padding content right_padding r_pad' 
+        'l_pad footer footer footer r_pad'
+        'l_pad footer footer footer r_pad';
+}
+
+#root.large-header {
+    grid-template-rows: var(--dim-element-huge) 1fr var(--dim-element-small) auto auto;
+}
+
+#root #content {
+    grid-area: content;
+    padding: var(--dim-layout-large);
+    
+    background: var(--colour-background);
+    opacity: 95%;
+    
+    overflow-x: hidden;
+}
+
+/* Misc */
+
+#partners-container {
+    background: var(--colour-white);
+    padding: var(--dim-layout-huge);
+}
+
+#partners {
+    display: flex;
+    flex-direction: row;
+    justify-content: center ;
+    gap: var(--dim-element-small);
+    flex-wrap: wrap;
+}
+
+#partners img {
+    max-height: var(--dim-element-small);
+    min-height: var(--dim-element-small);
+}
+
+/* News */
+
+#news-container a.news-article {
+    text-decoration: none;
+    display: block;
+    position: relative;
+    min-height: var(--dim-element-gigantic);
+    overflow: hidden;
+}
+
+#news-container .split {
+    gap: var(--dim-layout-medium);
+}
+
+#news-container .news-article img {
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#news-container .news-article img ~ div {
+    --margin: var(--dim-layout-large);
+
+    width: calc(100% - 2 * var(--margin));
+    top: calc(100% - 2 * var(--margin));
+    transform: translateY(-100%);
+    z-index: 2;
+    padding: var(--margin);
+    color: var(--colour-foreground);
+    background: var(--colour-background);
+    margin: var(--margin);
+    border-radius: 7px;
+    /* backdrop-filter: blur(128px) brightness(75%); */
+}
+
+/* Footer */
+
+#root #footer {
+    grid-area: footer;
+    
+    position: sticky;
+    top: 0;
+    
+    background: var(--colour-background);
+    background-image: url(/static/img/backdrop.svg);
+    background-size: cover;
+    background-position: center;
+    
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-template-rows: subgrid;
+    grid-template-areas: 'left links right' 'left copyright right';
+    
+    padding: var(--dim-layout-large);
+}
+
+#root #footer, #root #footer #copyright {
+    border-top: 1px solid var(--colour-foreground);
+}
+
+#root #footer > * {
+    padding: var(--dim-layout-huge);
+}
+
+#footer #footer-links {
+    grid-area: links;
+}
+
+#footer #footer-links a {
+    display: block;
+    line-height: 1.5;
+    text-decoration: none;
+    font-size: var(--dim-font-small);
+}
+
+#footer #footer-links ul {
+    padding: var(--dim-layout-medium);
+}
+
+#footer #footer-links li {
+    list-style-type: none;
+    padding-left: var(--dim-layout-medium);
+    padding: var(--dim-layout-small) var(--dim-layout-medium);
+}
+
+#footer #socials {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--dim-layout-medium);
+}
+
+#footer #socials a {
+    text-decoration: none;
+    font-size: var(--dim-font-gigantic);
+}
+
+#footer #copyright {
+    grid-area: copyright;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: var(--colour-foreground);
+    font-size: var(--dim-font-small);
+}
+
+#footer #copyright a {
+    font-size: var(--dim-font-small);
+}

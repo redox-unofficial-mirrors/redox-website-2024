@@ -1,0 +1,11 @@
+{
+    "Redox OS": {
+        "About Redox": "/redox.html",
+        "Our Nonprofit": "/nonprofit.html",
+        "History": "/history.html"
+    },
+    "Docs": {
+        "FAQ": "/docs/faq.html",
+        "Book": "/docs/book.html"
+    }
+}

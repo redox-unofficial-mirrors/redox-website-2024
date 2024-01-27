@@ -1,0 +1,99 @@
+:root { /* Colours */
+    --colour-white-light: #ffffff;
+    --colour-white: #eaeaea;
+    --colour-white-dark: #d5d5d5;
+    
+    --colour-grey-light: #E2e6ea;
+    --colour-grey: #Dadde2;
+    --colour-grey-dark: #C4c7c9;
+    
+    --colour-black-light: #616671;
+    --colour-black: #2e3136;
+    --colour-black-dark: #272727;
+    
+    --colour-blue-light: #2386bc;
+    --colour-blue: #0d7a8b;
+    --colour-blue-dark: #0754d0;
+    
+    --colour-green-light: #48940a;
+    --colour-green: #1a9641;
+    --colour-green-dark: #48940a;
+    
+    --colour-yellow-light: #ffec1e;
+    --colour-yellow: #ebd61c;
+    --colour-yellow-dark: #cb9d13;
+    
+    --colour-red-light: #ff4517;
+    --colour-red: #ff2922;
+    --colour-red-dark: #b3260d;
+}
+
+:root { /* Sizes */
+    --dim-layout-tiny: 3px;
+    --dim-layout-small: 4px;
+    --dim-layout-medium: 12px;
+    --dim-layout-large: 16px;
+    --dim-layout-huge: 24px;
+    
+    --dim-element-tiny: 32px;
+    --dim-element-small: 64px;
+    --dim-element-medium: 128px;
+    --dim-element-large: 240px;
+    --dim-element-huge: 366px;
+    --dim-element-gigantic: 465px;
+    
+    --dim-font-small: 9pt;
+    --dim-font-label: 10pt;
+    --dim-font-standard: 11pt;
+    --dim-font-medium: 12pt;
+    --dim-font-large: 14pt;
+    --dim-font-huge: 16pt;
+    --dim-font-gigantic: 20pt;
+}
+
+/* Anything wrapped in a div.exaggerated will be made larger */
+div.exaggerated {
+    --layout-exaggeration-factor: 1.5;
+    --element-exaggeration-factor: 1.45;
+    --font-exaggeration-factor: 1.35;
+    
+    --dim-layout-tiny: calc(var(--layout-exaggeration-factor) * 3px);
+    --dim-layout-small: calc(var(--layout-exaggeration-factor) * 4px);
+    --dim-layout-medium: calc(var(--layout-exaggeration-factor) * 12px);
+    --dim-layout-large: calc(var(--layout-exaggeration-factor) * 16px);
+    --dim-layout-huge: calc(var(--layout-exaggeration-factor) * 24px);
+    
+    --dim-element-tiny: calc(var(--element-exaggeration-factor) * 32px);
+    --dim-element-small: calc(var(--element-exaggeration-factor) * 64px);
+    --dim-element-medium: calc(var(--element-exaggeration-factor) * 128px);
+    --dim-element-large: calc(var(--element-exaggeration-factor) * 240px);
+    --dim-element-huge: calc(var(--element-exaggeration-factor) * 366px);
+    --dim-element-gigantic: calc(var(--element-exaggeration-factor) * 465px);
+    
+    --dim-font-small: calc(var(--font-exaggeration-factor) * 9pt);
+    --dim-font-label: calc(var(--font-exaggeration-factor) * 10pt);
+    --dim-font-standard: calc(var(--font-exaggeration-factor) * 11pt);
+    --dim-font-medium: calc(var(--font-exaggeration-factor) * 12pt);
+    --dim-font-large: calc(var(--font-exaggeration-factor) * 14pt);
+    --dim-font-huge: calc(var(--font-exaggeration-factor) * 16pt);
+    --dim-font-gigantic: calc(var(--font-exaggeration-factor) * 20pt);
+    
+    --nav-indent-size: var(--dim-layout-large);
+    --nav-item-size: var(--dim-element-tiny);
+}
+
+/* Theme */
+:root {
+    --nav-indent-size: var(--dim-layout-large);
+    --nav-item-size: var(--dim-element-tiny);
+}
+    
+:root {
+    --colour-primary: var(--colour-blue);
+    --colour-foreground: var(--colour-black);
+    --colour-background: var(--colour-white-light);
+    --colour-background-accent: var(--colour-white-dark);
+    --colour-foreground-accent: var(--colour-white-dark);
+    
+    --background-image: url('/static/img/banner.png');
+}

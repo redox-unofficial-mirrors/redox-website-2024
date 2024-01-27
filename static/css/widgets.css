@@ -1,0 +1,10 @@
+@import url('./button.css');
+@import url('./layout.css');
+
+article figure figcaption {
+    font-size: var(--dim-font-small);
+}
+
+img {
+    max-width: 100%;
+}
